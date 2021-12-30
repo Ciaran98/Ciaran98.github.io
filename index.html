@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/style.css">
+	<script src="assets/index.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	<title>Ciarán Melarkey</title>
+</head>
+<body>
+	<div class="header-image" onclick="replaceBG()" id="header-img">
+		<div class="header-text">
+    		<h1 class="header-style main-header-style">Ciarán Melarkey</h1>
+		</div>
+	</div>
+	<div class="body-div" id="about-me">
+		<div class="main-text-one">
+			<hr class="section-div">
+			<h2 class="header-style" >About Me</h2>
+			<div class="about-me">
+				<p class="main-text-blocks">
+					Hello, my name is Ciarán Melarkey. I am a graduate of the Letterkenny Institute of technology, there I studied general computer science. Over my four years at college, I was taught many aspects of computer science, these include:
+				</p>
+				<ul>
+					<li>Java</li>
+					<li>HTML</li>
+					<li>JavaScript, including notable libraries and frameworks</li>
+					<li>SQL</li>
+					<li>Python</li>
+					<li>Agile development</li>
+					<li>Data Science</li>
+				</ul>
+				<p class="main-text-blocks">
+					After college, I started to search for employment, but have so far been unsuccessful. To keep myself occupied, and to keep my skills sharp, I enrolled in online courses, some of which has allowed me to learn C.
+				</p>
+			</div>
+		</div>
+		<hr class="section-div">
+	</div>
+	<div class="mid-div-image">
+		<div class="header-text">
+    		<h1 class="header-style main-header-style">Previous Work</h1>
+		</div>
+	</div>
+	<div class="body-div" id="coding-experience">
+		<div class="coding-experience">
+			<hr class="section-div">
+			<h2 class="header-style">Coding Experience and Examples</h2>
+			<div class="code-example">
+				<h3 class="header-style">Simple Discord Bot</h3>
+				<p class="main-text-blocks">
+					This was a small project to make a simple bot for the popular online communication app, Discord. The bot was written in JavaScript, and runs using node. The bot was built using an older version of Discord.js, and as such will not run using the latest version of it. Functions of the bot included:
+				</p>
+				<ul class="bot-list">
+					<li>Simple greeting</li>
+					<li>Message clearing</li>
+					<li>Pull XKCD comic at random, or specific one using a given argument</li>
+					<li>Pull random fact</li>
+					<li>Pull random picture of a cat</li>
+					<li>Play a game of Rock Paper Scissors</li>
+				</ul>
+				<button type="button" onclick="redirect(this.id)" class="contact-button code-example-button" id="GitHubRepo">GitHub Repo</button>
+			</div>
+			<div class="code-example">
+				<h3 class="header-style">CS50 Online Course</h3>
+				<p class="main-text-blocks">
+					Earlier this year, I enrolled in the online course CS50. This course teaches the fundamentals of computer science, which I already knew. I decided to do the course to keep myself occupied, and to keep myself up to date with computer science. I was also mainly insterested in doing the practical assignements that were in the course. <br>
+					These assignments were a nice challenge that kept me occupied while I searched for work. In one assignment, I was tasked with applying filters over certain images. The filters were greyscale, sepia, blur, and flip. Another assignment was to recover images from an SD card. The program would read the data, find what bytes correlated to the start and end of an Image, and write the data of the image.
+				</p>
+			</div>
+			<hr class="section-div">
+			<h2 class="header-style">Code Snippets</h2>
+			<div class="code-snippet-container">
+
+
+				<h3 class="header-style">Pull XKCD Comic page</h3>
+				<div class="code-snippet-box">
+					<pre>
+<span class="snippet-keyword">const</span> fetch <span class="snippet-operator">=</span> <span class="snippet-function">require</span>('<span class="snippet-string">node-fetch</span>');
+<span class="snippet-keyword">module</span>.<span class="snippet-keyword">exports</span> <span class="snippet-operator">=</span> {
+	name: '<span class="snippet-string">comic</span>',
+	description: '<span class="snippet-string">Gives a XKCD comic</span>'
+	args: <span class="snippet-constant">false</span>,
+	<span style="color: teal; ">execute</span>: <span class="snippet-keyword">async</span>(<span class="snippet-function-argument">message</span>, <span class="snippet-function-argument">args</span>) <span class="snippet-keyword">=></span>{
+		<span class="snippet-keyword">if</span>(<span class="snippet-operator">!</span>args.length <span class="snippet-operator">||</span> <span class="snippet-function">isNaN</span>(args)){
+			<span class="snippet-keyword">const</span> {img} <span class="snippet-operator">=</span> <span class="snippet-keyword">await</span> <span class="snippet-function">fetch</span>(`<span class="snippet-string">https://xkcd.com/info.0.json</span>`).<span class="snippet-function">then</span>(<span class="snippet-function-argument">response</span> <span class="snippet-keyword">=></span> response.json());
+			message.channel.<span class="snippet-function">send</span>(`<span class="snippet-string">Here is the latest XKCD comic: ${img}</span>`);
+		}
+		<span class="snippet-keyword">else</span>{
+			<span class="snippet-keyword">const</span> {img} <span class="snippet-operator">=</span> <span class="snippet-keyword">await</span> <span class="snippet-function">fetch</span>(`<span class="snippet-string">https://xkcd.com/</span>${args}<span class="snippet-string">/info.0.json</span>`).<span class="snippet-function">then</span>(<span class="snippet-function-argument">response</span> <span class="snippet-keyword">=></span> response.json());
+			message.channel.<span class="snippet-function">send</span>(`<span class="snippet-string">Here is XKCD comic #</span>${args}<span class="snippet-string">: </span>${img}`);
+		}
+	}
+};
+</pre>
+				</div>
+
+				<h3 class="header-style">Recover Data Code</h3>
+				<div class="code-snippet-box" id="code-snippet">
+					<pre>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdint.h&gt;
+
+const int CHUNK_SIZE = 512;
+int main(int argc, char *argv[])
+{
+// Initialise variables used for the program
+    char filename[7];
+    int JPG_COUNTER = 0;
+    uint8_t buffer[CHUNK_SIZE];
+// Open the file that contains the images
+    FILE *input = fopen(argv[1], "r");
+
+// Loop through the data from the file, until it reaches the end
+    while (fread(buffer, CHUNK_SIZE, 1, input))
+    {
+// Check if the first four bytes of a chunk match the header of a JPEG file
+// Increment the JPG_COUNTER
+// Apply the next number in sequence to the variable filename
+// Write to a new JPEG file with the filename
+// Close the JPEG file
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        {
+            JPG_COUNTER++;
+            sprintf(filename, "%03i.jpg", JPG_COUNTER);
+            FILE *img = fopen(filename, "w");
+            fwrite(&buffer, CHUNK_SIZE, 1, img);
+            fclose(img);
+        }
+
+// Re-open the JPEG file
+// Appened the next chunk of 512 bytes
+// Close the JPEG file
+        else
+        {
+            FILE *img = fopen(filename, "a");
+            fwrite(&buffer, CHUNK_SIZE, 1, img);
+            fclose(img);
+        }
+    }
+// Close the input file
+    fclose(input);
+}
+</pre>
+				</div>
+
+
+
+			</div>
+		</div>
+		<hr class="section-div">
+	</div>
+	<div class="body-div">
+		<h3 class="header-style footer-header-style">Contact Me</h3>
+		<footer class="footer-container">
+			<div class="footer-element">
+				<table class="footer-link-table">
+					<tr>
+						<th><button type="button" onclick="redirect(this.id)" class="contact-button" id="LinkedIn">LinkedIn</button></th>
+						<th><button type="button" onclick="redirect(this.id)" class="contact-button" id="GitHub">GitHub</button></th>
+						<th><button type="button" onclick="redirect(this.id)" class="contact-button" id="Email">Email</button></th>
+					</tr>
+				</table>
+			</div>
+			<h3 class="header-style footer-header-style">Ciarán Melarkey © 2020</h3>
+		</footer>
+	</div>
+</body>
+</html>
