@@ -16,6 +16,9 @@ function redirect(buttonID){
 		case "GitHubRepo":
 			window.open("https://github.com/Ciaran98/Basic-Discord-Bot/tree/master", '_blank').focus();
 			break;
+		case "Email":
+			navigator.clipboard.writeText("ciaran.melarkey@hotmail.com");
+			break;
 	}
 };
 
@@ -34,33 +37,49 @@ function smoothScroll(){
 };
 
 function collapseToggle(coll){
-	switch(coll){
+	if(document.getElementById(coll).style.maxHeight){
+				document.getElementById(coll).style.maxHeight = null;
+				document.getElementById(coll).style.overflow = "hidden";
+				setTimeout(function(){
+						hideElement(coll);
+					}, 175);
+			}
+			else{
+				document.getElementById(coll).style.display = "block";
+				document.getElementById(coll).style.overflow = "auto";
+				document.getElementById(coll).style.maxHeight = document.getElementById(coll).scrollHeight + "px";
+			}
+	/*switch(coll){
 		case "xkcd":
 			if(document.getElementById("xkcd").style.maxHeight){
 				document.getElementById("xkcd").style.maxHeight = null;
+				document.getElementById("xkcd").style.overflow = "hidden";
 				setTimeout(function(){
 						hideElement(coll);
-					}, 245);
+					}, 175);
 			}
 			else{
 				document.getElementById("xkcd").style.display = "block";
+				document.getElementById("xkcd").style.overflow = "auto";
 				document.getElementById("xkcd").style.maxHeight = document.getElementById("xkcd").scrollHeight + "px";
 			}
 			break;
 		case "recover":
 			if(document.getElementById("recover").style.maxHeight){
 				document.getElementById("recover").style.maxHeight = null;
+				document.getElementById("xkcd").style.overflow = "hidden";
 				setTimeout(function(){
 						hideElement(coll);
-					}, 245);
+					}, 175);
 				
 			}
 			else{
 				document.getElementById("recover").style.display = "block";
+				document.getElementById("xkcd").style.overflow = "auto";
 				document.getElementById("recover").style.maxHeight = document.getElementById("recover").scrollHeight + "px";
 			}
 			break;
-	}
+	}*/
 	
 };
 
