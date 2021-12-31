@@ -38,8 +38,9 @@ function collapseToggle(coll){
 		case "xkcd":
 			if(document.getElementById("xkcd").style.maxHeight){
 				document.getElementById("xkcd").style.maxHeight = null;
-				document.getElementById("xkcd").style.display = "none";
-				
+				setTimeout(function(){
+						hideElement(coll);
+					}, 245);
 			}
 			else{
 				document.getElementById("xkcd").style.display = "block";
@@ -49,7 +50,9 @@ function collapseToggle(coll){
 		case "recover":
 			if(document.getElementById("recover").style.maxHeight){
 				document.getElementById("recover").style.maxHeight = null;
-				document.getElementById("recover").style.display = "none";
+				setTimeout(function(){
+						hideElement(coll);
+					}, 245);
 				
 			}
 			else{
@@ -60,3 +63,7 @@ function collapseToggle(coll){
 	}
 	
 };
+
+function hideElement(id) {
+	document.getElementById(id).style.display = "none"
+}
