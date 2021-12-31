@@ -26,9 +26,37 @@ function replaceBG(){
 		document.getElementById("header-img").style.backgroundImage = "url('assets/img/nessie-bg.png')";
 		document.body.style.cursor = ("url(assets/img/nessie-cursor32.png),auto")
 	}
-}
+};
 
 // Function to have clicked button scroll user to the about section of the site
 function smoothScroll(){
 	document.getElementById("about-me").scrollIntoView({behavior: "smooth"});
-}
+};
+
+function collapseToggle(coll){
+	switch(coll){
+		case "xkcd":
+			if(document.getElementById("xkcd").style.maxHeight){
+				document.getElementById("xkcd").style.maxHeight = null;
+				document.getElementById("xkcd").style.display = "none";
+				
+			}
+			else{
+				document.getElementById("xkcd").style.display = "block";
+				document.getElementById("xkcd").style.maxHeight = document.getElementById("xkcd").scrollHeight + "px";
+			}
+			break;
+		case "recover":
+			if(document.getElementById("recover").style.maxHeight){
+				document.getElementById("recover").style.maxHeight = null;
+				document.getElementById("recover").style.display = "none";
+				
+			}
+			else{
+				document.getElementById("recover").style.display = "block";
+				document.getElementById("recover").style.maxHeight = document.getElementById("recover").scrollHeight + "px";
+			}
+			break;
+	}
+	
+};

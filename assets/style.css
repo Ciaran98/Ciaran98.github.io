@@ -51,8 +51,7 @@ a:hover {
 }
 
 .footer-container {
-	margin-right: 10%;
-	margin-left: 10%;
+	align-content: center;
 }
 
 
@@ -86,7 +85,7 @@ th {
 	transition-duration: 0.6s;
 	border-radius: 6px;
 	background-color: #1f211f;
-	font-size: 24px;
+	font-size: 20px;
 	color: #5ab874;
 }
 
@@ -172,8 +171,11 @@ body, html {
 	padding-bottom: 1%;
 	padding-left: 1%;
 	border-radius: 4px;
+	display: none;
 	overflow: auto;
 	margin-bottom: 20px;
+	max-height: 0;
+	transition: max-height 0.2s ease-out;
 }
 
 .code-snippet-container {
